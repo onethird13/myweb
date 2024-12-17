@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-btn{
+            height: 16px;
+            width: 60px;
+            border: none;
+            background-color:black;
+            opacity: 0.5;
+            color: white;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+        .daohanglanhezi{
+            display: flex;
+            flex: 1;
+            color: rgb(255, 255, 255);
+        }
+        .logSign{
+            display: flex;
+            background-color: rgba(0, 0, 0,0.5);
+            
+            flex:1;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .logSign-btn{
+            transition:background-color 1s;
+            color: white;
+            background-color: rgba(0, 0, 0,0.5);
+            border: none;
+        }
+        .sec{
+            color:white;
+            display: flex;
+            flex: 1;
+        }
+        .input-sl{
+            width: 40%;
+            height: 20%;
+            background-color:rgb(49, 47, 47);
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body background="SuCai\shenlanse.png">
+     <!-- 导航栏 -->
+     <div style="display: flex;justify-content: center;">
+        <div style=" display: flex; width: 50%;height:10%;background-color: black;opacity: 0.5; ">
+          111
+        </div>
+      
+       </div>
+       <div style=" display: flex; width: 50%;height:10%;z-index: 2;position: relative;top: -21px;right:-340.5px;">
+           <div class="daohanglanhezi" >
+              <button class="top-btn" onclick='window.open("index.html")'> 主页</button>
+           </div>
+           <div class="daohanglanhezi">
+               <button class="top-btn" onclick="heroopen()">英雄</button>
+               <script>
+                function heroopen(){
+                    window.open('index.html');
+                }
+               </script>
+           </div>
+           <div class="daohanglanhezi">
+               <button class="top-btn" onclick="chongzhi()">充值</button>
+           </div>
+           <div class="daohanglanhezi">
+               <button class="top-btn">我的</button>
+           </div>
+       </div>
+
+     <!--   注册登录栏 -->
+        <div style="display: flex; width: 100%;height: 280px;text-align: center;justify-content: center;">
+            <div style="justify-content: center; display: flex; width: 50%;flex-direction: column; background-color: rgb(0, 0, 0,0.5);">
+       <div style="display: flex;flex: 1;">
+                <div class="logSign">
+        <button class="logSign-btn">注册</button>
+       </div>
+       <div class="logSign">
+        <button class="logSign-btn">登录</button>
+       </div>
+    </div>
+       <div style="display: flex;flex: 3;flex-direction: column;">
+        <div  class="sec" >账号
+            <input id="zhanghao" class="input-sl" type="text"><br>
+        </div><br>
+        <div class="sec"> 密码
+            <input class="input-sl" type="text" name="" id="mima">
+
+        </div>
+    </div>
+    <div><button onclick="sure()">确定</button></div>
+      
+    </div>
+    
+   
+    </div>
+
+
+
+   <!--  详情栏 -->
+     <div style="width: 100%;height: 40%;justify-items: center;">
+    <div style="width: 60%;height: 40%;background-color: rgba(255,255,255,0.5);">
+        <div id="wodeyue">我的余额：</div>
+        
+    </div>
+</div>
+       
+</body>
+<script>
+    console.log(localStorage.getItem('balance'));
+    if(localStorage.getItem('balance')==null){
+        var balance=0;
+    }
+    var balance= parseInt(localStorage.getItem('balance')) ;  
+    function chongzhi(){
+        balance=balance+100;
+       
+        localStorage.setItem('balance',balance);
+        document.getElementById("wodeyue").innerText="我的余额:"+balance;
+        console.log(balance);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var zhanghaomima=new Array();
+
+    function zhucesure(){
+      var a=  document.getElementById("zhanghao").value;
+      var b=document.getElementById("mima").value;
+      zhanghaomima.push(a);
+      zhanghaomima.push(b);
+      console.log("zhuceok");
+      alert("注册成功");
+    }
+    function denglusure(){
+        var a=document.getElementById("zhanghao").value;
+        var b=document.getElementById("mima").value;
+        var ind=zhanghaomima.findIndex(function(itm){
+           return itm==a;
+        });
+        console.log(ind);
+        if(ind==-1){
+            alert("失败ind");
+            return;
+        }
+        if(zhanghaomima[ind+1]!=b){
+            alert("失败ind+1");
+            return;
+        };
+        alert("登录成功");
+        console.log("dengluok");
+    }
+
+    function sure(){
+       var b=Array.from(document.getElementsByClassName("logSign-btn"))
+      if(b[1].style.backgroundColor=="rgba(255, 255, 255, 0.5)"){
+       denglusure();
+       
+      }
+      if(b[0].style.backgroundColor=="rgba(255, 255, 255, 0.5)"){
+       zhucesure();
+      }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var btnlog=Array.from(document.getElementsByClassName("logSign-btn")); 
+ var btn1=   btnlog[0].addEventListener("click",function(){
+        btnlog.forEach(function(btn){
+            btn.style.backgroundColor='rgba(0, 0, 0,0.5)';
+            btn.style.color='white';
+        });
+        btnlog[0].style.backgroundColor='rgba(255,255,255,0.5)';
+        btnlog[0].style.color='black';
+
+
+        //清除事件监听器
+        removeEventListener(btn1,function(){
+        btnlog.forEach(function(btn){
+            btn.style.backgroundColor='rgba(0, 0, 0,0.5)';
+            btn.style.color='white';
+        });
+        btnlog[0].style.backgroundColor='rgba(255,255,255,0.5)';
+        btnlog[0].style.color='black';
+
+
+        //清除事件监听器
+        removeEventListener(btn1,)
+    });
+    //清除
+
+    })
+
+
+
+   var btn1= btnlog[1].addEventListener("click",function(){
+        btnlog.forEach(function(btn){
+            btn.style.backgroundColor='rgba(0, 0, 0,0.5)';
+            btn.style.color='white';
+        });
+        btnlog[1].style.backgroundColor='rgba(255,255,255,0.5)';
+        btnlog[1].style.color='black';
+    
+    })
+</script>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+  font-family: "MyFont";
+  src: url("SuCai\PingFang-Bold-1.ttf");
+}
+         html, body {
+            scroll-behavior: smooth;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+        .daohanglanhezi{
+            display: flex;
+            flex: 1;
+            color: aliceblue;
+        }
+        .xiaodaohanglan{
+            display: flex;
+            flex:1;
+            flex-direction: row;
+            color: green;
+
+        }
+        .fade-out{
+           transition:opacity 2s;
+        }
+        .btn-left{
+            width: 30px;
+            height: 80px;
+            opacity: 0.5;
+            background-color: gray;
+            position: relative;
+            top: -300px;
+            right: -10%;
+            z-index: 4;
+            border: none;
+            border-radius:  0px 5px 5px 0px ;
+        }
+        .btn-right{
+            width: 30px;
+            height: 80px;
+            opacity: 0.5;
+            background-color: gray;
+            position: relative;
+            top: -300px;
+            right: -84.5%;
+            z-index: 4;
+            border: none;
+            border-radius: 5px 0px 0px 5px;
+
+        }
+        .xiaosp{
+            height: 100px;
+            display: flex;
+            margin: 8px;
+            flex:1;
+            
+
+        }
+        .top-btn{
+            height: 16px;
+            width: 60px;
+            border: none;
+            background-color:black;
+            opacity: 0.5;
+            color: white;
+            
+
+        }
+        .herodiv{
+            transition: transform 1s; 
+            width:100%;
+            height:20%;
+            overflow: hidden;
+           margin-bottom: 50px;
+
+        }
+        .heroimg{
+            object-fit:cover;
+            width: 215px;
+            height: 242px;
+            transition: transform 0.7s;
+            float: left;
+        }
+        .heroimg:hover{
+            transform: scale(1.15);
+        }
+        .textshow{
+            width: 500px;
+            color: aliceblue;
+            height: 100%;
+            z-index: 11;
+           
+            font-size: 70px;
+            font-weight: 500;
+            float: left;margin-left: 100px;
+
+
+        }
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body background="SuCai\shenlanse.png">
+    <div id="yue" style="color: aliceblue;z-index: 90;position: relative;right:-30px;">
+        余额：0
+    </div>
+    
+    <!-- 导航栏 -->
+     <div style="display: flex;justify-content: center;">
+     
+     <div style=" display: flex; width: 50%;height:10%;background-color: black;opacity: 0.5; ">
+       111
+     </div>
+   
+    </div>
+    <div style=" display: flex; width: 50%;height:10%;z-index: 2;position: relative;top: -21px;right:-340.5px;">
+        <div class="daohanglanhezi" >
+           <button class="top-btn"> 主页</button>
+        </div>
+        <div class="daohanglanhezi">
+            <button class="top-btn" onclick="jumpto()">英雄</button>
+            <script>
+                function jumpto(){
+                    window.location.href='#target';
+                }
+            </script>
+        </div>
+        <div class="daohanglanhezi">
+            <button class="top-btn" onclick="chongzhi()">充值</button>
+        </div>
+        <div class="daohanglanhezi">
+            <button class="top-btn" onclick='window.open("my.html")'>我的</button>
+        </div>
+        <div>
+            <img style="width: 100px;height: 50px;position: relative;top: -20px;right: -100px;" src="SuCai\V_Lockup_Vertical_White.png" alt="">
+        </div>
+    </div>
+
+
+   <!--  小导航栏 -->
+     <div style="display: flex;justify-content: center;align-items: center;position: relative;top: -50px;">
+     <div style="width: 20%;height: 5%;display: flex;">
+       <!--  <div class="xiaodaohanglan"><a style="color: green;" href="">主打</a></div>
+        <div class="xiaodaohanglan"><a style="color: green;" href="">英雄</a></div>
+        <div class="xiaodaohanglan"><a style="color: green;" href="">饰品</a></div> -->
+     </div>
+    </div>
+
+
+
+  <!--   大商品背景 -->
+  <div style="width: 100%; height:80%; display: flex; justify-content: center; align-items: center;">
+    <div style="width: 80%; height: 100%; border-style: solid; border-width: 2px;position: relative;top:-40px;">
+    <div style="width: 100%;height: 100%;z-index: 0;">
+        <div style="font-size: 20px;font-weight: 5px;color: aliceblue;z-index: 10;position: relative;top: 20px;"><br>
+        </div>
+        <img class="fade-out" style=" width: 100%;height: 100%;z-index: 0;position: relative;top: -25px;" src="SuCai/Oni/ValorantWallpaper_Oni.jpg" alt="">
+    </div>
+        <img class="fade-out" style="width: 100%;height: 100%;z-index: 1;position: relative;top: -100%;" src="SuCai/Prime/ValorantWallpaper_Prime.jpg" alt="">
+        <img class="fade-out"  style="width: 100%;height: 100%;z-index: 2;position: relative;top: -201%;"src="SuCai/Reaver/ValorantWallpaper_Reaver.jpg" alt="">
+    </div>
+</div>
+<button class="btn-left" onclick="leftOnclick()">
+    <
+</button>
+<button class="btn-right" onclick="rightOnclick()"> 
+    >
+</button>
+<div id="shoujia" style="z-index: 4;font-size: 40px;font-weight: 8px;opacity: 0.5;color:white;position: relative;top: -185px;right: -66%;">
+    售价：6360vp
+</div>
+
+
+
+<!-- 小商品 -->
+ <div id="target" style="width: 100%; height: 105px;align-items: center;justify-content: center;display: flex;">
+    <div style="position: relative;top: -160px; height: 100px;width: 80%;display: flex;align-items: center;justify-content: center;flex-direction: row;">
+        <div class="xiaosp">
+<img src="SuCai/屏幕截图 2024-12-16 175642.png" alt="">
+        </div>
+        <div class="xiaosp">
+            <img src="SuCai/屏幕截图 2024-12-16 175724.png" alt="">
+        </div>
+        <div class="xiaosp">
+            <img src="SuCai/屏幕截图 2024-12-16 175732.png" alt="">
+        </div>
+        <div class="xiaosp">
+            <img src="SuCai/屏幕截图 2024-12-16 175754.png" alt="">
+            
+        </div>
+     </div>
+ </div>
+
+
+
+
+
+
+
+
+<!-- 英雄栏 -->
+ <div  style="width: 100%;height: 200%;justify-items: center;">
+ <div style=" width: 80%;height: 100%;border-style: solid;
+  border-width: 3px;border-color: aliceblue;border-radius: 10px;
+  position: relative;top: -10%;">
+<!--   放图片的地方，一行一张 -->
+  <div class="herodiv" >
+    <img  class="heroimg" src="SuCai\Wallpapers\VALORANT_Cypher_Dark.jpg" alt="">
+    <div class="textshow" >
+        <span>零/Cypher</span>
+        <div style="font-size: medium;font-weight: 200;">      
+            The Moroccan information broker,Cypher is a one-man surveillance
+             network who keeps tabs on the enemy's every move. No secret is safe.
+             No maneuver goes unseen. Cypher is always watching.
+        </div>
+       
+    </div>
+  </div>
+<div class="herodiv">
+    <img class="heroimg" src="SuCai\Wallpapers\VALORANT_Omen_Dark.jpg" alt="">
+    <div class="textshow" >
+        <span>幽影/Omen</span>
+        <div style="font-size: medium;font-weight: 200;">      
+            A phantom of a memory, Omen hunts in the shadows. He renders 
+            enemies blind, teleports across the field, 
+            then lets paranoia take hold as his foe scrambles to learn
+             where he might strike next.
+        </div>
+       
+    </div>
+</div>
+<div class="herodiv">
+    <img class="heroimg" src="SuCai\Wallpaper\VALORANT_Sova_Dark.jpg" alt="">
+    <div class="textshow" >
+        <span>猎枭/Sova</span>
+        <div style="font-size: medium;font-weight: 200;">      
+            Born from the eternal winter of Russia's tundra, Sova tracks, 
+            finds, and eliminates enemies with ruthless efficiency and precision.
+             His custombow and incredible scouting abilities ensure that even 
+             if you run, you cannot hide.
+        </div>
+       
+    </div>
+</div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+     if(localStorage.getItem('balance')==null){
+        var balance=0;
+    }
+    else{
+         var balance= parseInt(localStorage.getItem('balance'))
+        }
+   
+
+    function chongzhi(){
+        balance+=100;
+        localStorage.setItem('balance',balance);
+        document.getElementById("yue").innerText="我的余额:"+balance;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //图片点击事件
+var xiaoImgs=Array.from(document.getElementsByClassName("xiaosp"));
+xiaoImgs.forEach(function(img){
+    img.addEventListener('click',function(){
+        alert("你的余额不足");
+    })
+})
+
+
+    var daShangPinImgs=Array.from(document.getElementsByClassName("fade-out"));
+   
+        var index=0;
+        
+       
+       
+           var ding= setInterval(function(){
+            index++;
+            if(index>=daShangPinImgs.length){
+                index=0;
+                daShangPinImgs.forEach(function(img){
+                    img.style.opacity=0;
+                })
+                daShangPinImgs[index].style.opacity=1;
+            }
+            else{
+                daShangPinImgs.forEach(function(img){
+                    img.style.opacity=0;
+                })
+                daShangPinImgs[index].style.opacity=1;
+            }
+        },5000)
+        
+       
+        
+      
+
+function leftOnclick(){
+  
+    index--;
+  if(index<0){
+    index=-index;
+  };
+  if(index>=daShangPinImgs.length){
+    index=index%2 - 1}
+   
+    daShangPinImgs.forEach(function(img){
+                    img.style.opacity=0;
+                })
+                daShangPinImgs[index].style.opacity=1;
+
+ 
+        }
+
+function rightOnclick(){
+    index++;
+    if(index>=daShangPinImgs.length){
+        index=index%2-1}
+    daShangPinImgs.forEach(function(img){
+                    img.style.opacity=0;
+                })
+                daShangPinImgs[index].style.opacity=1;
+               
+        }
+
+       
+       
+        
+        
+    
+    
+ 
+   
+
+</script>
+</html>
